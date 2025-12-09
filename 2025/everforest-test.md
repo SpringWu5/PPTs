@@ -45,9 +45,3 @@ layout: two-cols
 ::right::
 
 <!-- 注意：这里必须留空行，否则报错 -->
-
-```rust
-// 代码块
-fn main() {
-    println!("Hello, Zen!");
-}
