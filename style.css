@@ -1,0 +1,54 @@
+/* 强制全局背景色为 Everforest Dark Hard */
+:root {
+  --slidev-theme-primary: #a7c080;   /* Green */
+  --slidev-theme-secondary: #7fbbb3; /* Blue */
+  --slidev-theme-accents: #e67e80;   /* Red */
+  --slidev-code-background: #2d353b; /* Dim background for code */
+  --slidev-code-font-size: 14px;
+  --slidev-code-font-family: 'Fira Code', monospace;
+}
+
+/* 覆盖 Slidev 默认的布局背景 */
+.slidev-layout {
+  background-color: #272e33 !important;
+  color: #d3c6aa !important;
+}
+
+/* 针对 Neversink 主题的特殊清理 - 去除默认的装饰条/页脚 */
+.slidev-layout.neversink {
+  background-image: none !important; /* 去掉可能的背景图 */
+}
+
+/* 链接样式 */
+a {
+  color: #7fbbb3 !important;
+  text-decoration: none !important;
+  border-bottom: 1px dashed #7fbbb3;
+}
+a:hover {
+  color: #a7c080 !important;
+  border-bottom-style: solid;
+}
+
+/* 滚动条极简处理 (Webkit) */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #272e33; 
+}
+::-webkit-scrollbar-thumb {
+  background: #2d353b; 
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a7c080; 
+}
+
+/* 极客代码块样式增强 */
+.slidev-code {
+  border: 1px solid #374247;
+  border-radius: 4px; /* 微圆角 */
+  padding: 10px !important;
+}

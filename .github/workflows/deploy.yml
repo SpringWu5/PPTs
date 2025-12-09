@@ -3,9 +3,8 @@ name: Deploy Slidev Site
 on:
   push:
     branches:
-      - master  # 监听 master 分支
+      - master  # ✅ 这里的名字必须和你实际的分支名一致
 
-# 权限设置
 permissions:
   contents: read
   pages: write
@@ -25,22 +24,24 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # 🛠️ 修复核心：先安装 PNPM
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      # 🛠️ 然后再配置 Node 和缓存 (此时系统里有 pnpm 了，缓存才能生效)
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'pnpm'
 
-      - name: Setup PNPM
-        uses: pnpm/action-setup@v3
-        with:
-          version: 9
-
       - name: Install Dependencies
+        # 使用 --frozen-lockfile 确保安装版本与你本地完全一致
         run: pnpm install --frozen-lockfile
 
       - name: Build Site
-        # 运行我们刚才写的脚本
         run: node scripts/build.mjs
 
       - name: Setup Pages
